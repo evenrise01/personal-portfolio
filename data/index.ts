@@ -107,8 +107,6 @@ export const navItems = [
   ];
 
 
-export const gridDemo = [{ title: "Title1", description: "desc1", id : 1 },{ title: "Title1", description: "desc1", id : 2 },{ title: "Title1", description: "desc1", id : 3 }];
-
   export const gridItems = [
     {
       id: 1,
