@@ -3,19 +3,45 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cosmic Theme Colors */
+  --color-background: #0B0C10; /* Deep Space */
+  --color-primary: #6A0572; /* Nebula Glow */
+  --color-secondary: #1B1F3B; /* Galactic Blue */
+  --color-accent: #38B6FF; /* Starlight Pulse */
+  --color-highlight: #F4A261; /* Meteor Glow */
+  --color-text-primary: #E0E0E0; /* Soft White */
+  --color-text-secondary: #A0A3B1; /* Muted Gray-Blue */
+  --color-text-accent: #8A2BE2; /* Neon Purple */
+  --color-text-disabled: #6C6F7F; /* Dim Gray */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Apply Global Styles */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-[var(--color-background)] text-[var(--color-text-primary)] font-sans;
+}
+
+/* Custom Utility Classes */
+.text-primary {
+  @apply text-[var(--color-text-primary)];
+}
+.text-secondary {
+  @apply text-[var(--color-text-secondary)];
+}
+.text-accent {
+  @apply text-[var(--color-text-accent)] font-bold;
+}
+.text-disabled {
+  @apply text-[var(--color-text-disabled)];
+}
+.bg-primary {
+  @apply bg-[var(--color-primary)];
+}
+.bg-secondary {
+  @apply bg-[var(--color-secondary)];
+}
+.bg-accent {
+  @apply bg-[var(--color-accent)];
+}
+.hover-glow:hover {
+  @apply text-[var(--color-highlight)] transition duration-300;
 }
