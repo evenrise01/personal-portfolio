@@ -1,5 +1,8 @@
+import Approach from "@/components/Approach";
 import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
+import RecentProject from "@/components/RecentProject";
+import WorkExperience from "@/components/WorkExperience";
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { navItems } from "@/data";
@@ -11,6 +14,9 @@ export default function Home() {
   <FloatingNav navItems={navItems}/>
     <Hero/>
     <Grid/>
+    <RecentProject/>
+    <WorkExperience/>
+    <Approach/>
   </div>
 </main>
   );
