@@ -7,12 +7,13 @@ const WorkExperience = () => {
   return (
     <div className='py-20'>
       <Timeline data={[{
-      title: "2024",
+      title: "Early 2025 - Present",
       content: (
         <div>
-          <p className="text-[#A0A3B1] text-xs md:text-sm font-normal mb-8 ">
-            Built and launched Aceternity UI and Aceternity UI Pro from scratch
-          </p>
+          <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">Frontend Engineer</h1>
+          <p className="text-[#A0A3B1] text-sm md:text-base lg:text-lg font-normal mb-8">
+          After transitioning into frontend development, I focused on building interactive, performant, and scalable web experiences. I'm now crafting cutting-edge digital solutions with React, Next.js, and modern web technologies.
+          </p>    
           <div className="grid grid-cols-2 gap-4">
           <Image
               src="/b4.svg"
@@ -47,17 +48,13 @@ const WorkExperience = () => {
       ),
     },
     {
-        title: "Early 2023",
+        title: "Late 2024",
         content: (
           <div>
-            <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-              I usually run out of copy, but when I see content this big, I try to
-              integrate lorem ipsum.
-            </p>
-            <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-              Lorem ipsum is for people who are too lazy to write copy. But we are
-              not. Here are some more example of beautiful designs I built.
-            </p>
+            <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">Transition from Product Manager to Frontend Developer</h1>
+          <p className="text-[#A0A3B1] text-sm md:text-base lg:text-lg font-normal mb-8">
+          With a deep understanding of product thinking, I leveraged my experience in project and product management to shift into frontend development. I focused on learning modern frameworks, honing my problem-solving skills, and contributing to impactful web applications.
+          </p>  
             <div className="grid grid-cols-2 gap-4">
             <Image
               src="/b1.svg"
@@ -92,17 +89,41 @@ const WorkExperience = () => {
         ),
       },
       {
-        title: "Early 2022",
+        title: "2023 - 2024",
         content: (
           <div>
-            <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-              I usually run out of copy, but when I see content this big, I try to
-              integrate lorem ipsum.
-            </p>
-            <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-              Lorem ipsum is for people who are too lazy to write copy. But we are
-              not. Here are some more example of beautiful designs I built.
-            </p>
+            <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">Transition from Product Manager to Frontend Developer</h1>
+          <p className="text-[#A0A3B1] text-sm md:text-base lg:text-lg font-normal mb-8">
+          Led cross-functional teams, ensuring seamless collaboration between developers, designers, and stakeholders. Oversaw multiple projects, optimizing workflows, improving user experience, and launching impactful features.
+          </p>  
+            <div className="grid grid-cols-2 gap-4">
+
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "2023",
+        content: (
+          <div>
+            <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">Graduated with a CS Degree</h1>
+          <p className="text-[#A0A3B1] text-sm md:text-base lg:text-lg font-normal mb-8">
+          Strengthened my foundation in algorithms, data structures, and software engineering principles, paving the way for my journey in AI, product management, and frontend development.
+          </p>  
+            <div className="grid grid-cols-2 gap-4">
+
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "2021 - 2023",
+        content: (
+          <div>
+            <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">AI Training Intern at Wysa</h1>
+          <p className="text-[#A0A3B1] text-sm md:text-base lg:text-lg font-normal mb-8">
+          Worked on AI-driven mental health solutions, fine-tuning machine learning models to enhance conversational AI. Gained deep insights into NLP, AI ethics, and product development.
+          </p>  
             <div className="grid grid-cols-2 gap-4">
 
             </div>
