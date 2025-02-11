@@ -2,8 +2,6 @@ import React from 'react'
 import { BentoGrid, BentoGridItem } from './ui/bento-grid'
 import { gridItems } from '@/data'
 
-console.log(gridItems)
-
 const Grid = () => {
   return (
     <section id="about">

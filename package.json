@@ -15,6 +15,7 @@
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
+    "cal-sans": "^1.0.1",
     "clsx": "^2.1.1",
     "dotted-map": "^2.2.3",
     "mini-svg-data-uri": "^1.4.4",

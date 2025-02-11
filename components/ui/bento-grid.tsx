@@ -52,8 +52,8 @@ export const BentoGridItem = ({
   spareImg?: string;
 }) => {
   const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
-  const leftLists = ["ReactJS", "Express", "Typescript"];
-  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
+  const leftLists = ["PostGre", "Express", "Typescript"];
+  const rightLists = ["NextJS", "ReactJS"];
 
   const [copied, setCopied] = useState(false);
 

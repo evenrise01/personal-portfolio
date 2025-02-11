@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-
-  font-family: 'calsans';
-
-  src: url('/daksh-portfolio/fonts/CalSans-SemiBold.woff'); /* Replace with your font file path */
-
-  font-weight: normal;
-
-  font-style: normal;
-
-}
 
 :root {
   /* Cosmic Theme Colors */
