@@ -20,9 +20,13 @@ const Footer = () => {
       <div className="text-4xl mx-auto font-normal text-[#A0A3B1] items-center justify-center md:text-5xl text-center">
       Ready to craft
         <FlipWords words={['beautiful','modern','creative','interactive']}/><br/>
-        experiences for <span className="text-[#8A2BE2]">your</span> website?
+        experiences for <span className="bg-clip-text text-transparent"
+  style={{
+    backgroundImage:
+      "linear-gradient(90deg, #7B1FA2, #D500F9)",
+  }}>your</span> website?
         </div>
-        <p className="text-white-200 md:mt-10 my-5 text-center sm:p-2">
+        <p className="text-white-200 md:mt-10 my-5 text-center py-4">
        
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
@@ -35,12 +39,12 @@ const Footer = () => {
           />
         </a>
       </div>
-      <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
-        <p className="md:text-base text-sm md:font-normal font-light sm:pb-4">
+      <div className="flex mt-16 md:flex-row flex-col justify-between items-center py-4 md:py-2">
+        <p className="md:text-base text-sm md:font-normal font-light">
           Copyright © 2025 Daksh Singh
         </p>
 
-        <div className="flex items-center md:gap-3 gap-6">
+        <div className="flex items-center md:gap-3 gap-6 py-4 md:py-2">
           {socialMedia.map((info) => (
             <div
               key={info.id}

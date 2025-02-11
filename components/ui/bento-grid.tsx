@@ -10,8 +10,6 @@ import { cn } from "@/lib/utils";
 import GridGlobe from "./grid-globe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./magic-button";
-import { ShootingStars } from "./shooting-stars";
-import { StarsBackground } from "./stars-background";
 import dynamic from "next/dynamic";
 import { BackgroundGradientAnimation } from "./background-gradient";
 export const BentoGrid = ({
@@ -115,18 +113,6 @@ export const BentoGridItem = ({
         {id === 6 && (
           <BackgroundGradientAnimation gradientBackgroundStart="#000000" gradientBackgroundEnd="#434343" firstColor="#2c2c54" secondColor="#1b1b2f" thirdColor="#3a3a60" fourthColor="#4e4e6a" fifthColor="#5a5a7a">
           <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
-            
-            {/* <StarsBackground
-              starDensity={0.001}
-              allStarsTwinkle={true}
-              twinkleProbability={0.9}
-            />
-            <ShootingStars
-              starWidth={12}
-              starHeight={2}
-              maxSpeed={20}
-              maxDelay={3000}
-            /> */}
           </div>
           </BackgroundGradientAnimation>
         )}
