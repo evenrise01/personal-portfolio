@@ -15,48 +15,30 @@ export const TextGenerateEffect = ({
   duration?: number;
 }) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
+  const wordsArray = words.split(" ");
+
   useEffect(() => {
     animate(
       "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration ? duration : 1,
-        delay: stagger(0.2),
-      }
+      { opacity: 1, filter: filter ? "blur(0px)" : "none" },
+      { duration, delay: stagger(0.2) }
     );
-  }, [scope.current]);
-
-  const renderWords = () => {
-    return (
-      <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
-          return (
-            <motion.span
-              key={word + idx}
-              className="dark:text-white text-black opacity-0"
-              style={{
-                filter: filter ? "blur(10px)" : "none",
-              }}
-            >
-              {word}{" "}
-            </motion.span>
-          );
-        })}
-      </motion.div>
-    );
-  };
+  }, [wordsArray]); // Depend on wordsArray to ensure updates
 
   return (
     <div className={cn("font-normal", className)}>
-      <div className="mt-2">
-        <div className=" dark:text-white text-black text-sm leading-snug tracking-wide text-center justify-center md:text-l lg:text-xl">
-          {renderWords()}
-        </div>
-      </div>
+      <motion.div ref={scope} className="text-center dark:text-white text-black text-sm md:text-lg lg:text-xl">
+        {wordsArray.map((word, idx) => (
+          <motion.span
+            key={word + idx}
+            className="opacity-0"
+            style={{ filter: filter ? "blur(10px)" : "none" }}
+            aria-hidden="true" // Improves accessibility
+          >
+            {word}{" "}
+          </motion.span>
+        ))}
+      </motion.div>
     </div>
   );
 };

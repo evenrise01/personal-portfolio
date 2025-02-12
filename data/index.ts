@@ -10,18 +10,20 @@ export const heroWords = [
     },
     {
       text: "Creative",
-      className: "break-words text-[#38B6FF] dark:text-[#38B6FF]",
+      className: "break-words text-[#38B6FF]",
     },
     {
       text: "Developer.",
-      className: "break-words text-[#38B6FF] dark:text-[#38B6FF]",
+      className: "break-words text-[#38B6FF]",
     },
   ]
 
 export const navItems = [
     { name: "About", link: "#about" },
-    { name: "Work", link: "#work" },
+    { name: "Projects", link: "#projects" },
     { name: "Resume", link: "#resume" },
+    { name: "Contact", link: "#contact" },
+
   ];
 
   export const projects = [

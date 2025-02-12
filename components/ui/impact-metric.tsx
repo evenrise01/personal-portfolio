@@ -1,9 +1,9 @@
 "use client";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
 import clsx from "clsx";
-import { useRef } from "react";
+import { useMemo } from "react";
 
 interface ImpactMetricProps {
   label: string;
@@ -14,18 +14,22 @@ interface ImpactMetricProps {
 }
 
 const ImpactMetric: React.FC<ImpactMetricProps> = ({ label, value, suffix, highlight, className }) => {
-    // Use `react-intersection-observer` for visibility tracking
-    const { ref, inView } = useInView({
-      triggerOnce: true, // Ensures animation only happens once
-      rootMargin: "-50px 0px", // Start animation slightly before it's fully visible
-    });
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Ensures animation only happens once
+    rootMargin: "-50px 0px", // Start animation slightly before it's fully visible
+  });
+
+  // Memoize CountUp component to avoid unnecessary re-renders
+  const countUp = useMemo(() => (
+    <CountUp end={value} duration={3} separator="," suffix={suffix} start={inView ? undefined : 0} />
+  ), [inView, value, suffix]);
 
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 10 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={clsx(
         "flex flex-col items-center space-y-2 text-center p-4 rounded-lg",
         highlight && "animate-glow",
@@ -36,7 +40,7 @@ const ImpactMetric: React.FC<ImpactMetricProps> = ({ label, value, suffix, highl
         "text-3xl md:text-4xl font-bold text-white",
         highlight && "text-purple-400"
       )}>
-        <CountUp end={value} duration={3} separator="," suffix={suffix} start={inView ? undefined : 0} />
+        {countUp}
       </h2>
       <p className="text-gray-300 text-sm md:text-lg">{label}</p>
     </motion.div>
