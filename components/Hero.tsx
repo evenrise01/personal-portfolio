@@ -15,7 +15,7 @@ const Hero = () => {
     () => (
       <TextGenerateEffect
         words="Hi! I'm Daksh, a Next.js Developer based in India."
-        duration={3}
+        duration={5}
       />
     ),
     []

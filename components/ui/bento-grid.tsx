@@ -2,13 +2,13 @@
 
 import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import { IoCopyOutline } from "react-icons/io5";
 import { cn } from "@/lib/utils";
-import GridGlobe from "./grid-globe";
 import MagicButton from "./magic-button";
 import { BackgroundGradientAnimation } from "./background-gradient";
 import animationData from "@/data/confetti.json";
+import { ShootingStars } from "./shooting-stars";
+import { StarsBackground } from "./stars-background";
 
 const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
@@ -20,7 +20,12 @@ export const BentoGrid = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div className={cn("grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto", className)}>
+    <div
+      className={cn(
+        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
+        className
+      )}
+    >
       {children}
     </div>
   );
@@ -48,7 +53,7 @@ export const BentoGridItem = ({
   const [copied, setCopied] = useState(false);
 
   const leftLists = useMemo(() => ["PostGre", "Express", "Typescript"], []);
-  const rightLists = useMemo(() => ["NextJS", "ReactJS"], []);
+  const rightLists = useMemo(() => ["NextJS", "ReactJS", "MongoDB"], []);
 
   const defaultOptions = {
     loop: copied,
@@ -70,18 +75,36 @@ export const BentoGridItem = ({
       )}
       style={{
         background: "rgb(10,10,15)",
-        backgroundColor: "linear-gradient(90deg, rgba(10,10,15,1) 0%, rgba(30,30,40,1) 50%, rgba(70,70,80,1) 100%)",
+        backgroundColor:
+          "linear-gradient(90deg, rgba(10,10,15,1) 0%, rgba(30,30,40,1) 50%, rgba(70,70,80,1) 100%)",
       }}
     >
       {/* Image & Background */}
-      <div className={`${id === 6 ? "flex justify-center" : ""} h-full relative`}>
-        {img && (
-          <Image src={img} alt="Bento image" className={cn(imgClassName, "object-cover object-center")} layout="fill" />
-        )}
-
-        {spareImg && (
-          <Image src={spareImg} alt="Spare image" className="absolute right-0 -bottom-5 object-cover w-full h-full opacity-80" width={220} height={220} />
-        )}
+      {/* add img divs */}
+      <div className={`${id === 6 && "flex justify-center"} h-full`}>
+        <div className="w-full h-full absolute">
+          {img && (
+            <img
+              src={img}
+              alt={img}
+              className={cn(imgClassName, "object-cover object-center ")}
+            />
+          )}
+        </div>
+        <div
+          className={`absolute right-0 -bottom-5 ${
+            id === 5 && "w-full opacity-80"
+          } `}
+        >
+          {spareImg && (
+            <img
+              src={spareImg}
+              alt={spareImg}
+              //   width={220}
+              className="object-cover object-center w-full h-full"
+            />
+          )}
+        </div>
 
         {id === 6 && (
           <BackgroundGradientAnimation
@@ -96,32 +119,73 @@ export const BentoGridItem = ({
         )}
 
         {/* Content */}
-        <div className={cn(titleClassName, "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10")}>
-          <p className="text-[#C1C2D3] font-sans font-extralight text-sm md:max-w-32 md:text-xs lg:text-base">{description}</p>
-          <h3 className="font-sans text-lg lg:text-3xl max-w-96 font-bold">{title}</h3>
+        <div
+          className={cn(
+            titleClassName,
+            "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
+          )}
+        >
+          <p className="text-[#C1C2D3] font-sans font-extralight text-sm md:max-w-32 md:text-xs lg:text-base">
+            {description}
+          </p>
+          <h3 className="font-sans text-lg lg:text-3xl max-w-96 font-bold">
+            {title}
+          </h3>
 
-          {id === 2 && <GridGlobe />}
+          {id === 5 && (
+            <ShootingStars
+              trailColor="#8A2BE2"
+              starColor="#4B0082"
+              starWidth={15}
+              minSpeed={5}
+              maxSpeed={12}
+              minDelay={6500}
+              starHeight={2}
+            />
+          )}
+          {id === 5 && (
+            <StarsBackground starDensity={0.0003} twinkleProbability={0.8} />
+          )}
 
           {/* Tech stack list */}
           {id === 3 && (
             <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-              {[leftLists, rightLists].map((list, index) => (
-                <div key={index} className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                  {list.map((item, i) => (
-                    <span key={i} className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]">
-                      {item}
-                    </span>
-                  ))}
-                  <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg bg-[#10132E]" />
-                </div>
-              ))}
+              {/* tech stack lists */}
+              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
+                {leftLists.map((item, i) => (
+                  <span
+                    key={i}
+                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
+                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                  >
+                    {item}
+                  </span>
+                ))}
+                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+              </div>
+              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
+                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                {rightLists.map((item, i) => (
+                  <span
+                    key={i}
+                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
+                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           )}
 
           {/* Copy email button */}
           {id === 6 && (
             <div className="mt-5 relative">
-              <div className="absolute -bottom-5 right-0">{copied && <Lottie options={defaultOptions} height={200} width={400} />}</div>
+              <div className="absolute -bottom-5 right-0">
+                {copied && (
+                  <Lottie options={defaultOptions} height={200} width={400} />
+                )}
+              </div>
               <MagicButton
                 title={copied ? "Email is Copied!" : "Copy my email address"}
                 icon={<IoCopyOutline />}
