@@ -91,8 +91,8 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "remote environments and adapt seamlessly to different time-zones",
-      description: "I thrive in",
+      title: "I'm very flexible with time zone communications",
+      description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
       titleClassName: "justify-start",

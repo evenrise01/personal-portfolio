@@ -9,6 +9,7 @@ import { BackgroundGradientAnimation } from "./background-gradient";
 import animationData from "@/data/confetti.json";
 import { ShootingStars } from "./shooting-stars";
 import { StarsBackground } from "./stars-background";
+import Earth from "./globe";
 
 const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
@@ -146,6 +147,21 @@ export const BentoGridItem = ({
           {id === 5 && (
             <StarsBackground starDensity={0.0003} twinkleProbability={0.8} />
           )}
+          
+          {id === 2 && (
+  <div className="flex items-center justify-center absolute -left-5 top-36 md:top-40 w-full h-full">
+    <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-96 px-4">
+      {/* Gradient Background */}
+      <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent z-40" />
+
+      {/* Earth component shifted down */}
+      <div className="absolute w-full h-72 md:h-full md:bottom-[-30px]">
+        <Earth />
+      </div>
+    </div>
+  </div>
+)}
+
 
           {/* Tech stack list */}
           {id === 3 && (
